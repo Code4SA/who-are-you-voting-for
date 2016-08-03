@@ -14,12 +14,11 @@ app = Flask(__name__)
 def hello():
     return "Hello"
 
-@app.route("/")
-def get_candidates():
-    address = request.args.get("address")
-    lat = request.args.get("lat")
-    lon = request.args.get("lon")
-    ward_no = request.args.get("ward")
+def process_request(req):
+    address = req.args.get("address")
+    lat = req.args.get("lat")
+    lon = req.args.get("lon")
+    ward_no = req.args.get("ward")
     ward = None
 
     variables = {'missing': False}
@@ -42,7 +41,19 @@ def get_candidates():
                 candidate["age"] = age
         else:
             variables['missing'] = True
+    return variables
+
+@app.route("/")
+def get_candidates():
+    variables = process_request(request)
+    
     return render_template('index.html', **variables)
+
+@app.route("/api")
+def json_candidates():
+    mimetype = "application/json"
+    variables = process_request(request)
+    return  Response(response=json.dumps(variables), status=200, mimetype=mimetype)
 
 if __name__ == "__main__":
     app.run(debug=True)
