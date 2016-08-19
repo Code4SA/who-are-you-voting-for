@@ -39,6 +39,7 @@ def coords_to_ward(lon, lat):
     for key in js:
         if js[key]["type_name"] == 'Ward':
             ward_no = js[key]["name"]
+            ward_no = js[key]["name"]
 
     return {
         "ward": ward_no,
@@ -73,19 +74,23 @@ def address_to_ward(address):
 def get_candidates(ward):
     return data.get(ward, None)
 
-def get_councillors(ward, municipality):
-    result = {}
-    
-    result["councillor"] = councillor_data.get(ward, [])
-    result["proportional representation"] = councillor_data.get(municipality, [])
+def get_proportional_representation(ward, result):
+    councillor = councillor_data.get(ward, None)
 
-    # TODO: Add age values...
-    # for councillor in result["councillor"]:
-    #         age = a2c.get_age(candidate["IDNumber"])
-    #         candidate["age"] = age
+    if councillor:
+        result["councillor"] = councillor
+        result["proportional representation"] =  councillor_data.get(councillor[0]["Municipality"], None)
+        return result
+
+    # In case ward has no councillor yet...
+    candidates = data.get(ward, None)
+    if candidates :
+        print candidates[0]
+        print candidates[0].get("Municipality")
+        result["proportional representation"] =  councillor_data.get(candidates[0].get("Municipality"), [])
+        return result
 
     return result
-
 data, ids, councillor_data = load_data()
 
 if __name__ == "__main__":

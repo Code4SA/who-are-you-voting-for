@@ -45,16 +45,28 @@ def process_request(req):
 
 # Don't know easy way to not break old code without duplication... :(
 def process_councillor_request(req):
+    address = req.args.get("address")
+    lat = req.args.get("lat")
+    lon = req.args.get("lon")
     ward_no = req.args.get("ward")
-    municipality = req.args.get("municipality")
+    ward = None
     
     variables = {'missing': False}
 
-    if ward_no:
-        councillors = a2c.get_councillors(ward_no, municipality)
-        variables = councillors
-    else:
-        variables['missing'] = True
+    if address:
+        ward = a2c.address_to_ward(address)
+    elif lat:
+        ward = a2c.coords_to_ward(lon, lat)
+    elif ward_no:
+        ward = a2c.ward_to_ward(ward_no)
+
+    if ward:
+        if ward['ward']:
+            variables.update(ward)
+
+            a2c.get_proportional_representation(ward["ward"], variables)
+        else:
+            variables['missing'] = True
 
     return variables
 
