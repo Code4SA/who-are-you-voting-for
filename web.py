@@ -43,6 +43,21 @@ def process_request(req):
             variables['missing'] = True
     return variables
 
+# Don't know easy way to not break old code without duplication... :(
+def process_councillor_request(req):
+    ward_no = req.args.get("ward")
+    municipality = req.args.get("municipality")
+    
+    variables = {'missing': False}
+
+    if ward_no:
+        councillors = a2c.get_councillors(ward_no, municipality)
+        variables = councillors
+    else:
+        variables['missing'] = True
+
+    return variables
+
 @app.route("/")
 def get_candidates():
     variables = process_request(request)
@@ -53,6 +68,12 @@ def get_candidates():
 def json_candidates():
     mimetype = "application/json"
     variables = process_request(request)
+    return  Response(response=json.dumps(variables), status=200, mimetype=mimetype)
+
+@app.route("/api/councillors")
+def json_councillors():
+    mimetype = "application/json"
+    variables = process_councillor_request(request)
     return  Response(response=json.dumps(variables), status=200, mimetype=mimetype)
 
 if __name__ == "__main__":

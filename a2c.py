@@ -6,6 +6,7 @@ from jinja2 import Template
 import datetime
 
 DATA_FILE = "data.json"
+COUNCILLOR_DATA_FILE = "councillors.json"
 URL = "http://mapit.code4sa.org/address?address=%s&generation=2&type=WD"
 URLxy = "http://mapit.code4sa.org/point/4326/%s,%s"
 
@@ -22,11 +23,12 @@ def get_age(idnumber):
 def load_data():
     ids = defaultdict(list)
     data = json.load(open(DATA_FILE))
+    councillor_data = json.load(open(COUNCILLOR_DATA_FILE))
     for ward, candidates in data.items():
         for candidate in candidates:
             idno = candidate["IDNumber"]
             ids[idno].append(ward)
-    return data, ids
+    return data, ids, councillor_data
 
 def coords_to_ward(lon, lat):
     url = URLxy % (lon, lat)
@@ -71,7 +73,21 @@ def address_to_ward(address):
 def get_candidates(ward):
     return data.get(ward, None)
 
-data, ids = load_data()
+def get_councillors(ward, municipality):
+    result = {}
+    
+    result["councillor"] = councillor_data.get(ward, [])
+    result["proportional representation"] = councillor_data.get(municipality, [])
+
+    # TODO: Add age values...
+    # for councillor in result["councillor"]:
+    #         age = a2c.get_age(candidate["IDNumber"])
+    #         candidate["age"] = age
+
+    return result
+
+data, ids, councillor_data = load_data()
+
 if __name__ == "__main__":
     address = raw_input("Enter in your address: ")
     ward = address_to_ward(address)
