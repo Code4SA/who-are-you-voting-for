@@ -1,0 +1,86 @@
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger pin code: 283-837-411
+ * Detected change in '/root/latestVote4Sa/who-are-you-voting-for/web.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger pin code: 283-837-411
+ * Detected change in '/root/latestVote4Sa/who-are-you-voting-for/web.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger pin code: 283-837-411
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger pin code: 283-837-411
+146.64.8.10 - - [04/Aug/2016 07:53:49] "GET /hello HTTP/1.1" 200 -
+146.64.8.10 - - [04/Aug/2016 08:05:24] "GET /?lat=-25.7571678&lon=28.2806101 HTTP/1.1" 200 -
+146.64.8.10 - - [04/Aug/2016 08:05:47] "GET /hello HTTP/1.1" 200 -
+41.135.97.221 - - [04/Aug/2016 12:33:27] "GET /?ward=59500025 HTTP/1.1" 200 -
+41.135.97.221 - - [04/Aug/2016 12:34:17] "GET /?ward=59500025 HTTP/1.1" 200 -
+197.77.205.155 - - [04/Aug/2016 15:51:57] "GET /?ward=59500092 HTTP/1.1" 200 -
+146.64.8.10 - - [04/Aug/2016 16:49:06] "GET /hello HTTP/1.1" 200 -
+41.147.97.51 - - [04/Aug/2016 17:45:41] "GET /?ward=59500031 HTTP/1.1" 200 -
+41.147.97.51 - - [04/Aug/2016 17:45:41] "GET /?ward=59500031 HTTP/1.1" 200 -
+41.147.97.51 - - [04/Aug/2016 17:46:56] "GET /?ward=59500025 HTTP/1.1" 200 -
+41.147.97.51 - - [04/Aug/2016 17:47:26] "GET /?ward=59500030 HTTP/1.1" 200 -
+41.147.97.51 - - [04/Aug/2016 17:47:55] "GET /?ward=59500030 HTTP/1.1" 200 -
+41.147.97.51 - - [04/Aug/2016 17:51:57] "GET /?ward=59500092 HTTP/1.1" 200 -
+41.147.97.51 - - [04/Aug/2016 19:00:21] "GET /?ward=79800058 HTTP/1.1" 200 -
+41.147.97.51 - - [04/Aug/2016 19:01:31] "GET /?ward=79800058 HTTP/1.1" 200 -
+41.147.97.51 - - [04/Aug/2016 20:56:02] "GET /?ward=59500092 HTTP/1.1" 200 -
+197.88.127.230 - - [04/Aug/2016 22:24:22] "GET /api?address=&lat=-34.026778&lon=18.4840209 HTTP/1.1" 200 -
+197.88.127.230 - - [04/Aug/2016 22:26:00] "GET /api?address=&lat=-34.02139590000001&lon=18.480201900000004 HTTP/1.1" 200 -
+197.88.127.230 - - [04/Aug/2016 22:26:17] "GET /api?address=&lat=-34.02673&lon=18.482589899999997 HTTP/1.1" 200 -
+41.147.97.51 - - [05/Aug/2016 06:29:42] "GET /?ward=59500092 HTTP/1.1" 200 -
+197.76.240.198 - - [05/Aug/2016 09:03:46] "GET /?ward=79900058 HTTP/1.1" 200 -
+41.180.70.34 - - [05/Aug/2016 10:47:44] "GET /api?address=&lat=-26.1316819&lon=27.929784 HTTP/1.1" 200 -
+146.64.8.10 - - [05/Aug/2016 16:00:57] "GET /hello HTTP/1.1" 200 -
+146.64.8.10 - - [05/Aug/2016 16:00:58] "GET /favicon.ico HTTP/1.1" 404 -
+146.64.8.10 - - [05/Aug/2016 16:02:09] "GET /api?address=&lat=-25.732015000000004&lon=28.367247 HTTP/1.1" 200 -
+154.69.108.197 - - [05/Aug/2016 16:04:38] "GET /api?address=&lat=-26.191809999999997&lon=28.30029 HTTP/1.1" 200 -
+146.64.8.10 - - [05/Aug/2016 16:07:45] "GET /api?address=&lat=-26.191809999999997&lon=28.30029 HTTP/1.1" 200 -
+197.76.195.131 - - [05/Aug/2016 21:20:04] "GET /api?address=&lat=-25.9522929&lon=28.215424000000002 HTTP/1.1" 200 -
+41.13.32.52 - - [06/Aug/2016 07:27:11] "GET /api?address=&lat=-26.027257600000002&lon=28.0345324 HTTP/1.1" 200 -
+41.13.32.52 - - [06/Aug/2016 07:28:43] "GET /api?address=&lat=-23.815617299999996&lon=29.4997009 HTTP/1.1" 200 -
+197.88.117.110 - - [06/Aug/2016 13:00:59] "GET /api?address=&lat=-29.8939335&lon=30.9765916 HTTP/1.1" 200 -
+146.64.8.10 - - [06/Aug/2016 21:05:15] "GET /hello HTTP/1.1" 200 -
+146.64.8.10 - - [06/Aug/2016 21:05:15] "GET /favicon.ico HTTP/1.1" 404 -
+146.64.8.10 - - [06/Aug/2016 21:05:15] "GET /favicon.ico HTTP/1.1" 404 -
+41.114.228.244 - - [07/Aug/2016 10:46:13] "GET /api?address=&lat=-33.827127&lon=25.384042899999997 HTTP/1.1" 200 -
+137.215.6.50 - - [08/Aug/2016 17:40:20] "GET /favicon.ico HTTP/1.1" 404 -
+137.215.6.50 - - [08/Aug/2016 17:40:21] "GET /favicon.ico HTTP/1.1" 404 -
+137.215.6.50 - - [08/Aug/2016 17:40:31] "GET /hello HTTP/1.1" 200 -
+137.215.6.50 - - [08/Aug/2016 17:45:13] "GET /hello HTTP/1.1" 200 -
+169.1.130.19 - - [11/Aug/2016 06:10:42] "GET /api?address=&lat=-33.91423400000001&lon=18.546692900000004 HTTP/1.1" 200 -
+Exception in thread Thread-1:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/threading.py", line 810, in __bootstrap_inner
+    self.run()
+  File "/usr/lib/python2.7/threading.py", line 763, in run
+    self.__target(*self.__args, **self.__kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 659, in inner
+    srv.serve_forever()
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 499, in serve_forever
+    HTTPServer.serve_forever(self)
+  File "/usr/lib/python2.7/SocketServer.py", line 238, in serve_forever
+    self._handle_request_noblock()
+  File "/usr/lib/python2.7/SocketServer.py", line 297, in _handle_request_noblock
+    self.handle_error(request, client_address)
+  File "/usr/lib/python2.7/SocketServer.py", line 295, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/usr/lib/python2.7/SocketServer.py", line 321, in process_request
+    self.finish_request(request, client_address)
+  File "/usr/lib/python2.7/SocketServer.py", line 334, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python2.7/SocketServer.py", line 649, in __init__
+    self.handle()
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 216, in handle
+    rv = BaseHTTPRequestHandler.handle(self)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 340, in handle
+    self.handle_one_request()
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 247, in handle_one_request
+    self.raw_requestline = self.rfile.readline()
+IOError: [Errno 104] Connection reset by peer
+

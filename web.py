@@ -14,12 +14,11 @@ app = Flask(__name__)
 def hello():
     return "Hello"
 
-@app.route("/")
-def get_candidates():
-    address = request.args.get("address")
-    lat = request.args.get("lat")
-    lon = request.args.get("lon")
-    ward_no = request.args.get("ward")
+def process_request(req):
+    address = req.args.get("address")
+    lat = req.args.get("lat")
+    lon = req.args.get("lon")
+    ward_no = req.args.get("ward")
     ward = None
 
     variables = {'missing': False}
@@ -42,7 +41,52 @@ def get_candidates():
                 candidate["age"] = age
         else:
             variables['missing'] = True
+    return variables
+
+# Don't know easy way to not break old code without duplication... :(
+def process_councillor_request(req):
+    address = req.args.get("address")
+    lat = req.args.get("lat")
+    lon = req.args.get("lon")
+    ward_no = req.args.get("ward")
+    ward = None
+    
+    variables = {'missing': False}
+
+    if address:
+        ward = a2c.address_to_ward(address)
+    elif lat:
+        ward = a2c.coords_to_ward(lon, lat)
+    elif ward_no:
+        ward = a2c.ward_to_ward(ward_no)
+
+    if ward:
+        if ward['ward']:
+            variables.update(ward)
+
+            a2c.get_proportional_representation(ward["ward"], variables)
+        else:
+            variables['missing'] = True
+
+    return variables
+
+@app.route("/")
+def get_candidates():
+    variables = process_request(request)
+    
     return render_template('index.html', **variables)
 
+@app.route("/api")
+def json_candidates():
+    mimetype = "application/json"
+    variables = process_request(request)
+    return  Response(response=json.dumps(variables), status=200, mimetype=mimetype)
+
+@app.route("/api/councillors")
+def json_councillors():
+    mimetype = "application/json"
+    variables = process_councillor_request(request)
+    return  Response(response=json.dumps(variables), status=200, mimetype=mimetype)
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
